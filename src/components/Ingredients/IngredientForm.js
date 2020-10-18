@@ -20,12 +20,13 @@ const IngredientForm = React.memo((props) => {
 							type="text"
 							id="title"
 							value={initalState[0].title}
-							onChange={(event) =>
-								initalState[1]({
-									title: event.target.value,
-									amount: initalState[0].amount,
-								})
-							}
+							onChange={event=>{
+                const newTitile=event.target.value
+                initalState[1](preState=>({
+                  title:newTitile,
+                  amount:preState.amount
+                }))
+              }}
 						/>
 					</div>
 					<div className="form-control">
