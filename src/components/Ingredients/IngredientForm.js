@@ -1,22 +1,32 @@
-import React,{useState} from 'react';
+import React, { useState } from "react";
 
-import Card from '../UI/Card';
-import './IngredientForm.css';
+import Card from "../UI/Card";
+import "./IngredientForm.css";
 
-const IngredientForm = React.memo(props => {
-  const initalState=useState({title:"",amount:""})
-  const submitHandler = event => {
-    event.preventDefault();
-    // ...
-  };
+const IngredientForm = React.memo((props) => {
+	const initalState = useState({ title: "", amount: "" });
+	const submitHandler = (event) => {
+		event.preventDefault();
+		// ...
+	};
 
-  return (
+	return (
 		<section className="ingredient-form">
 			<Card>
 				<form onSubmit={submitHandler}>
 					<div className="form-control">
 						<label htmlFor="title">Name</label>
-						<input type="text" id="title" value={initalState[0].title}  onChange={event=>initalState[1]({title:event.target.value,amount:initalState[0].amount})}/>
+						<input
+							type="text"
+							id="title"
+							value={initalState[0].title}
+							onChange={(event) =>
+								initalState[1]({
+									title: event.target.value,
+									amount: initalState[0].amount,
+								})
+							}
+						/>
 					</div>
 					<div className="form-control">
 						<label htmlFor="amount">Amount</label>
