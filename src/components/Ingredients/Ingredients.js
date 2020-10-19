@@ -17,7 +17,7 @@ const Ingredients = () => {
 				setUserIngredients((preState) => [
 					...preState,
 					{
-						id: Math.random().toString(),
+						id: re.data.name,
 						...ingredients,
 					},
 				]);
