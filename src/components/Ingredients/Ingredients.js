@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-
+import IngredientsList from "./IngredientList"
 import IngredientForm from './IngredientForm';
 import Search from './Search';
 
@@ -11,6 +11,7 @@ const  Ingredients=() =>{
       <section>
         <Search />
         {/* Need to add list here! */}
+        <IngredientsList/>
       </section>
     </div>
   );
