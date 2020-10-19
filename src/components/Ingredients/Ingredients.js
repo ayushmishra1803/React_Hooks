@@ -2,17 +2,29 @@ import React, { useState } from "react";
 import IngredientsList from "./IngredientList";
 import IngredientForm from "./IngredientForm";
 import Search from "./Search";
+import axois from "axios";
 
 const Ingredients = () => {
 	const [userIngredients, setUserIngredients] = useState([]);
 	const addIngredientsHandler = (ingredients) => {
-		setUserIngredients((preState) => [
-			...preState,
-			{
-				id: Math.random().toString(),
-				...ingredients,
-			},
-		]);
+		axois
+			.post(
+				"https://react-hooks-51ed1.firebaseio.com/ingredients.json",
+				ingredients,
+			)
+			.then((re) => {
+				console.log(re);
+				setUserIngredients((preState) => [
+					...preState,
+					{
+						id: Math.random().toString(),
+						...ingredients,
+					},
+				]);
+			})
+			.catch((re) => {
+				console.log(re);
+			});
 	};
 	const removeHandler = (id) => {
 		const newIngredients = userIngredients.filter((re) => re.id !== id);
