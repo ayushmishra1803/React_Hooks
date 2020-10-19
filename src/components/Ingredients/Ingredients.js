@@ -15,7 +15,9 @@ const Ingredients = () => {
 		]);
 	};
 	const removeHandler = (id) => {
-		console.log(id);
+		const newIngredients = userIngredients.filter((re) => re.id !== id);
+		console.log(newIngredients);
+		setUserIngredients(newIngredients);
 	};
 	return (
 		<div className="App">
