@@ -6,10 +6,16 @@ import Search from "./Search";
 const Ingredients = () => {
 	const [userIngredients, setUserIngredients] = useState([]);
 	const addIngredientsHandler = (ingredients) => {
-		setUserIngredients((preState) => [...preState, {
-			id: Math.random().toString(),
-			...ingredients,
-    }]);
+		setUserIngredients((preState) => [
+			...preState,
+			{
+				id: Math.random().toString(),
+				...ingredients,
+			},
+		]);
+	};
+	const removeHandler = (id) => {
+		console.log(id);
 	};
 	return (
 		<div className="App">
@@ -18,7 +24,10 @@ const Ingredients = () => {
 			<section>
 				<Search />
 				{/* Need to add list here! */}
-				<IngredientsList ingredients={userIngredients} onRemoveItem={()=>{}} />
+				<IngredientsList
+					ingredients={userIngredients}
+					onRemoveItem={removeHandler}
+				/>
 			</section>
 		</div>
 	);
